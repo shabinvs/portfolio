@@ -1,0 +1,83 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.about-me{
+    font-size: 18px;
+}
+
+.about{
+    background-color: rgb(15, 15, 15);
+    color: rgb(104, 102, 102);
+}
+
+.about img{
+    max-width: 100%;
+}
+
+.Services{
+    background-color: rgb(28, 27, 27);
+    transition: background-color 0.6s ease;
+}
+
+.sub-head{
+    opacity: 0.2;
+}
+
+.Services:hover{
+    background-color: rgb(227, 151, 12);
+    /* background-color: rgb(189, 221, 26); */
+}
+
+.Services h4{
+    transition: color 0.6s ease;
+}
+
+.Services:hover h4{
+    color: black;
+}
+
+.Services i{
+    /* color: aqua; */
+    color: rgb(241, 162, 16);
+    transition: color 0.3s ease;
+}
+
+.Services:hover i{
+    color: white;
+}
+
+.skill_heading{
+    font-size: 50px;
+}
+
+.project{
+    background-color: rgb(21, 21, 21);
+}
+
+.contact h1{
+    font-size: 30px;
+    color: rgb(237, 243, 243);
+}
+
+.contact h5{
+    color: rgb(75, 73, 73);
+}
+
+.contact i{
+    color: rgb(241, 162, 16);
+}
+
+.name{
+    font-size: 100px;
+}
+
+.home-sub-head{
+    opacity: 0.3;
+}
+
+.contact-sub-head{
+    color: rgb(103, 102, 102);
+}
