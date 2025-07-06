@@ -73,7 +73,7 @@ const App = () => {
     return () => observer.unobserve(el);
   }, []);
 
-  // Social icons + heading animation
+  // Social icons animation
   useGSAP(() => {
     const el = socialConnectRef.current;
     if (!el) return;
@@ -87,9 +87,9 @@ const App = () => {
           gsap.to(targets, {
             autoAlpha: 1,
             y: 0,
-            duration: 0.8, // Faster animation
+            duration: 0.8,
             ease: "power3.out",
-            stagger: 0.2, // Clean stagger
+            stagger: 0.2,
             overwrite: "auto",
           });
         } else {
@@ -105,9 +105,8 @@ const App = () => {
 
   return (
     <div
-      className="min-h-screen relative overflow-hidden bg-cover bg-center  p-6 sm:p-10 flex flex-col items-center"
+      className="min-h-screen relative overflow-hidden bg-cover bg-center p-6 sm:p-10 flex flex-col items-center"
       style={{ backgroundImage: "url('/background.webp')" }}
-      role="main"
     >
       <Navbar />
 
@@ -128,21 +127,20 @@ const App = () => {
         <img
           src="/image.png"
           alt="Portrait of Shabin"
-          loading="eager"
+          loading="lazy"
+          decoding="async"
+          width="288"
+          height="288"
           className="h-full w-full object-cover transform scale-125 sm:scale-110 md:scale-120 relative bottom-2 sm:bottom-4 md:bottom-6 transition-transform duration-300"
         />
       </div>
 
-      {/* Intro Section */}
+      {/* Intro Text */}
       <section
         ref={introTextRef}
         className="relative z-10 mt-6 sm:mt-10 max-w-2xl text-center text-white px-4"
-        aria-labelledby="intro-heading"
       >
-        <h1
-          id="intro-heading"
-          className="text-3xl sm:text-5xl md:text-6xl font-extrabold mb-6 tracking-wide drop-shadow-md"
-        >
+        <h1 className="text-3xl sm:text-5xl md:text-6xl font-extrabold mb-6 tracking-wide drop-shadow-md">
           Hi, I’m <span className="text-blue-400">Shabin</span>
         </h1>
         <p className="text-white/70 text-base sm:text-lg leading-loose tracking-normal mb-8">
@@ -158,23 +156,17 @@ const App = () => {
           target="_blank"
           rel="noopener noreferrer nofollow"
           className="resume-btn inline-block bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 px-6 rounded-lg shadow-md transition duration-300 mb-10"
-          aria-label="View and download Shabin's resume PDF"
-          title="Download Shabin's resume"
         >
           View Resume
         </a>
       </section>
 
-      {/* Social Connect Section */}
+      {/* Social Connect */}
       <section
         ref={socialConnectRef}
         className="relative z-10 max-w-2xl text-center text-white px-4 mt-10 sm:mt-16"
-        aria-labelledby="connect-heading"
       >
-        <h2
-          id="connect-heading"
-          className="text-xl sm:text-2xl font-medium mb-4 tracking-wide text-blue-300"
-        >
+        <h2 className="text-xl sm:text-2xl font-medium mb-4 tracking-wide text-blue-300">
           Connect with me
         </h2>
         <div className="flex justify-center gap-4 sm:gap-6 text-xl sm:text-2xl">
@@ -182,8 +174,6 @@ const App = () => {
             href="http://www.linkedin.com/in/shabinvs"
             target="_blank"
             rel="noopener noreferrer nofollow"
-            aria-label="LinkedIn profile of Shabin"
-            title="Visit Shabin's LinkedIn profile"
             className="hover:text-blue-400 transition duration-300"
           >
             <FaLinkedin />
@@ -192,8 +182,6 @@ const App = () => {
             href="https://github.com/shabinvs"
             target="_blank"
             rel="noopener noreferrer nofollow"
-            aria-label="GitHub profile of Shabin"
-            title="Visit Shabin's GitHub profile"
             className="hover:text-gray-300 transition duration-300"
           >
             <FaGithub />
@@ -202,8 +190,6 @@ const App = () => {
             href="https://www.instagram.com/shabin_._x/"
             target="_blank"
             rel="noopener noreferrer nofollow"
-            aria-label="Instagram profile of Shabin"
-            title="Visit Shabin's Instagram profile"
             className="hover:text-pink-400 transition duration-300"
           >
             <FaInstagram />
