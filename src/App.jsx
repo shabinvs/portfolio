@@ -25,7 +25,7 @@ const App = () => {
     return () => window.removeEventListener("mousemove", moveGlow);
   }, []);
 
-  // Intro animations timeline
+  // Intro animations timeline (profile image, text, and resume button)
   useGSAP(() => {
     const tl = gsap.timeline({ defaults: { ease: "power1.out", duration: 1 } });
 
@@ -44,33 +44,13 @@ const App = () => {
       { autoAlpha: 1, y: 0, stagger: 0.15 },
       "-=0.6"
     );
-  }, []);
 
-  // Resume button animation
-  useGSAP(() => {
-    const el = resumeBtnRef.current;
-    if (!el) return;
-
-    gsap.set(el, { autoAlpha: 0, y: 50 });
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          gsap.to(el, {
-            autoAlpha: 1,
-            y: 0,
-            duration: 1,
-            ease: "power3.out",
-          });
-        } else {
-          gsap.set(el, { autoAlpha: 0, y: 50 });
-        }
-      },
-      { threshold: 0.5 }
+    tl.fromTo(
+      resumeBtnRef.current,
+      { autoAlpha: 0, y: 50 },
+      { autoAlpha: 1, y: 0, duration: 1, ease: "power3.out" },
+      "-=0.4"
     );
-
-    observer.observe(el);
-    return () => observer.unobserve(el);
   }, []);
 
   // Social icons animation
