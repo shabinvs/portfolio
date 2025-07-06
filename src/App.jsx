@@ -105,8 +105,8 @@ const App = () => {
 
   return (
     <div
-      className="min-h-screen relative overflow-hidden bg-cover bg-center bg-no-repeat p-6 sm:p-10 flex flex-col items-center"
-      style={{ backgroundImage: "url('/bg-5.webp')" }}
+      className="min-h-screen relative overflow-hidden bg-cover bg-center  p-6 sm:p-10 flex flex-col items-center"
+      style={{ backgroundImage: "url('/background.webp')" }}
       role="main"
     >
       <Navbar />
