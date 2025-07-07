@@ -1,13 +1,18 @@
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Navbar from "../components/Navbar";
 import { FaGithub } from "react-icons/fa";
 import movieImg from "../assets/movie.png";
 
+gsap.registerPlugin(ScrollTrigger);
+
 const Projects = () => {
   const cursorGlowRef = useRef(null);
+  const cardRefs = useRef([]);
 
+  // Cursor glow effect
   useGSAP(() => {
     const moveGlow = (e) => {
       gsap.to(cursorGlowRef.current, {
@@ -17,9 +22,33 @@ const Projects = () => {
         ease: "power3.out",
       });
     };
-
     window.addEventListener("mousemove", moveGlow);
     return () => window.removeEventListener("mousemove", moveGlow);
+  }, []);
+
+  // Smoother scroll animations
+  useEffect(() => {
+    cardRefs.current.forEach((card, i) => {
+      if (!card) return;
+
+      gsap.fromTo(
+        card,
+        { autoAlpha: 0, scale: 0.96, y: 50 },
+        {
+          autoAlpha: 1,
+          scale: 1,
+          y: 0,
+          duration: 1.3,
+          ease: "power4.out",
+          delay: i * 0.1,
+          scrollTrigger: {
+            trigger: card,
+            start: "top 85%",
+            toggleActions: "play none none none",
+          },
+        }
+      );
+    });
   }, []);
 
   const projects = [
@@ -38,7 +67,7 @@ const Projects = () => {
     <div className="min-h-screen bg-black text-white relative overflow-hidden flex flex-col w-full px-4 sm:px-6">
       <Navbar />
 
-      {/* Cursor glow */}
+      {/* Cursor Glow */}
       <div
         ref={cursorGlowRef}
         className="fixed top-0 left-0 w-[800px] h-[800px] rounded-full bg-blue-500/25 blur-[200px] pointer-events-none z-0 transform -translate-x-1/2 -translate-y-1/2"
@@ -46,17 +75,14 @@ const Projects = () => {
       />
 
       <main className="flex-grow w-full z-10 pt-28 pb-20">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-6xl mx-auto px-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
           {projects.map((proj, idx) => (
             <div
               key={idx}
-              className="
-                bg-white/10 backdrop-blur-sm border border-white/10 rounded-xl
+              ref={(el) => (cardRefs.current[idx] = el)}
+              className="bg-white/10 backdrop-blur-sm border border-white/10 rounded-xl
                 overflow-hidden shadow-md group relative
-                w-full max-w-full
-                mx-auto
-                max-w-[320px] sm:max-w-[360px] md:max-w-none
-              "
+                w-full max-w-[360px] mx-auto transform transition-transform hover:scale-[1.03]"
             >
               <div className="relative overflow-hidden">
                 <img
