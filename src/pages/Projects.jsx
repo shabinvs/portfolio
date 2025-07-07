@@ -5,6 +5,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Navbar from "../components/Navbar";
 import { FaGithub } from "react-icons/fa";
 import movieImg from "../assets/movie.webp";
+import cooking from "../assets/cooking.webp";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -16,6 +17,14 @@ const projects = [
       "Movie Galaxy is a sleek and responsive movie search application built using the IMDb API. Users can effortlessly search and explore movies with detailed information like plot summaries, cast, release year, posters, and ratings. With a futuristic galaxy-themed UI, it delivers a smooth and immersive user experience tailored for movie enthusiasts.",
     viewLink: "https://movie-one-alpha.vercel.app/",
     githubLink: "https://github.com/shabinvs/movie",
+  },
+  {
+    title: "FLAVO - Recipe Search & Discovery App",
+    image: cooking,
+    description:
+      "FLAVO is a modern, responsive React application that lets users search and explore a vast collection of delicious recipes from around the world. Powered by TheMealDB API, FLAVO features a sleek and intuitive interface with a real-time search bar, beautifully presented recipe cards, and detailed recipe views including ingredients and step-by-step preparation instructions. Designed with Tailwind CSS, the app provides a seamless experience across all device sizes, making it easy for food lovers to find inspiration for their next meal. Whether you want to cook a classic chicken dish or explore new cuisines, FLAVO makes recipe discovery simple and enjoyable.",
+    viewLink: "https://recipe-app-ten-pearl.vercel.app/",
+    githubLink: "https://github.com/shabinvs/recipe-app",
   },
 ];
 
