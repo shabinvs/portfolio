@@ -9,7 +9,6 @@ const Contacts = () => {
   const formRef = useRef(null);
   const [status, setStatus] = useState("");
 
-  // Cursor glow animation
   useGSAP(() => {
     const moveGlow = (e) => {
       gsap.to(cursorGlowRef.current, {
@@ -24,22 +23,21 @@ const Contacts = () => {
     return () => window.removeEventListener("mousemove", moveGlow);
   }, []);
 
-  // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
     setStatus("Sending...");
 
     sendForm(
-      "your_service_id",    // 🔁 Replace with your actual Service ID from EmailJS
-      "your_template_id",   // 🔁 Replace with your actual Template ID
+      "service_glieize",
+      "template_51ntxig",
       formRef.current,
-      "your_public_key"     // 🔁 Replace with your actual Public Key
+      "TB-7n7-iReQkxaLYB"
     )
       .then((result) => {
         console.log("SUCCESS!", result.text);
         setStatus("✅ Message sent successfully!");
         formRef.current.reset();
-        setTimeout(() => setStatus(""), 5000); // Clear after 5s
+        setTimeout(() => setStatus(""), 5000);
       })
       .catch((error) => {
         console.error("FAILED...", error.text);
@@ -51,7 +49,6 @@ const Contacts = () => {
     <div className="min-h-screen bg-black text-white relative overflow-hidden flex flex-col w-full px-4 sm:px-6">
       <Navbar />
 
-      {/* Cursor Glow Effect */}
       <div
         ref={cursorGlowRef}
         className="fixed top-0 left-0 w-[800px] h-[800px] rounded-full bg-blue-500/25 blur-[200px] pointer-events-none z-0 transform -translate-x-1/2 -translate-y-1/2"
@@ -115,7 +112,6 @@ const Contacts = () => {
             Send Message
           </button>
 
-          {/* Feedback message */}
           {status && (
             <p className="text-center text-sm mt-2 text-white/70">{status}</p>
           )}
