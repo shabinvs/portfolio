@@ -31,7 +31,7 @@ const Contacts = () => {
       "service_glieize",
       "template_51ntxig",
       formRef.current,
-      "TB-7n7-iReQkxaLYB"
+      "TleiRhtm2VuQRBE4r"
     )
       .then((result) => {
         console.log("SUCCESS!", result.text);
