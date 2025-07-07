@@ -23,7 +23,6 @@ const Projects = () => {
   const cursorGlowRef = useRef(null);
   const cardRefs = useRef([]);
   const [activeIdx, setActiveIdx] = useState(null);
-  const [loadedImages, setLoadedImages] = useState({});
 
   useGSAP(() => {
     const moveGlow = (e) => {
@@ -52,7 +51,6 @@ const Projects = () => {
         });
       },
       start: "top 85%",
-      // No need for toggleActions, animation plays once
     });
 
     cardRefs.current.forEach((card) => {
@@ -67,13 +65,6 @@ const Projects = () => {
     [setActiveIdx]
   );
 
-  const handleImageLoad = useCallback(
-    (idx) => {
-      setLoadedImages((prev) => ({ ...prev, [idx]: true }));
-    },
-    [setLoadedImages]
-  );
-
   return (
     <div className="min-h-screen bg-black text-white relative overflow-hidden flex flex-col w-full px-4 sm:px-6">
       <Navbar />
@@ -86,7 +77,6 @@ const Projects = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
           {projects.map((proj, idx) => {
             const isActive = activeIdx === idx;
-            const isLoaded = loadedImages[idx];
             return (
               <div
                 key={idx}
@@ -96,14 +86,10 @@ const Projects = () => {
                 className={`group bg-white/10 backdrop-blur-sm border border-white/10 rounded-xl overflow-hidden shadow-md relative w-full max-w-[360px] mx-auto transform transition-transform hover:scale-[1.03] focus-within:scale-[1.03] ${isActive ? "scale-[1.03]" : ""}`}
               >
                 <div className="relative overflow-hidden">
-                  {!isLoaded && (
-                    <div className="w-full h-48 bg-gray-700 animate-pulse rounded-t-xl" />
-                  )}
                   <img
                     src={proj.image}
                     alt={proj.title}
-                    onLoad={() => handleImageLoad(idx)}
-                    className={`w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105 group-focus-within:scale-105 ${isActive ? "scale-105" : ""} ${!isLoaded ? "hidden" : "block"}`}
+                    className={`w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105 group-focus-within:scale-105 ${isActive ? "scale-105" : ""}`}
                   />
                   <div
                     className={`absolute inset-0 bg-black/70 opacity-0 transition duration-300 flex items-center justify-center gap-4 md:group-hover:opacity-100 md:group-focus-within:opacity-100 ${isActive ? "opacity-100" : ""}`}
