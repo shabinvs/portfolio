@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -11,6 +11,7 @@ gsap.registerPlugin(ScrollTrigger);
 const Projects = () => {
   const cursorGlowRef = useRef(null);
   const cardRefs = useRef([]);
+  const [activeIdx, setActiveIdx] = useState(null); // Track which card is active (tapped) on small screens
 
   // Cursor glow effect
   useGSAP(() => {
@@ -26,7 +27,7 @@ const Projects = () => {
     return () => window.removeEventListener("mousemove", moveGlow);
   }, []);
 
-  // Smoother scroll animations
+  // Scroll animations
   useEffect(() => {
     cardRefs.current.forEach((card, i) => {
       if (!card) return;
@@ -60,8 +61,16 @@ const Projects = () => {
       viewLink: "https://movie-one-alpha.vercel.app/",
       githubLink: "https://github.com/shabinvs/movie",
     },
-    
   ];
+
+  // Toggle active index on click/tap
+  const handleCardClick = (idx) => {
+    if (activeIdx === idx) {
+      setActiveIdx(null); // deactivate if already active
+    } else {
+      setActiveIdx(idx);
+    }
+  };
 
   return (
     <div className="min-h-screen bg-black text-white relative overflow-hidden flex flex-col w-full px-4 sm:px-6">
@@ -76,51 +85,71 @@ const Projects = () => {
 
       <main className="flex-grow w-full z-10 pt-28 pb-20">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
-          {projects.map((proj, idx) => (
-            <div
-              key={idx}
-              ref={(el) => (cardRefs.current[idx] = el)}
-              className="bg-white/10 backdrop-blur-sm border border-white/10 rounded-xl
-                overflow-hidden shadow-md group relative
-                w-full max-w-[360px] mx-auto transform transition-transform hover:scale-[1.03]"
-            >
-              <div className="relative overflow-hidden">
-                <img
-                  src={proj.image}
-                  alt={proj.title}
-                  className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center gap-4">
-                  <a
-                    href={proj.githubLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="bg-white text-black hover:bg-gray-300 px-4 py-2 text-sm rounded-md flex items-center gap-2"
+          {projects.map((proj, idx) => {
+            const isActive = activeIdx === idx;
+
+            return (
+              <div
+                key={idx}
+                ref={(el) => (cardRefs.current[idx] = el)}
+                tabIndex={0}
+                onClick={() => handleCardClick(idx)}
+                className={`group bg-white/10 backdrop-blur-sm border border-white/10 rounded-xl
+                  overflow-hidden shadow-md relative w-full max-w-[360px] mx-auto
+                  transform transition-transform hover:scale-[1.03] focus-within:scale-[1.03]
+                  ${isActive ? "scale-[1.03]" : ""}`}
+              >
+                <div className="relative overflow-hidden">
+                  <img
+                    src={proj.image}
+                    alt={proj.title}
+                    className={`w-full h-48 object-cover transition-transform duration-300
+                      group-hover:scale-105 group-focus-within:scale-105
+                      ${isActive ? "scale-105" : ""}`}
+                  />
+                  <div
+                    className={`absolute inset-0 bg-black/70 opacity-0
+                      transition duration-300 flex items-center justify-center gap-4
+
+                      /* Show overlay on hover/focus for medium+ screens */
+                      md:group-hover:opacity-100 md:group-focus-within:opacity-100 
+
+                      /* On small screens, show overlay only if active */
+                      ${isActive ? "opacity-100" : ""}
+                    `}
                   >
-                    <FaGithub className="text-base" />
-                    GitHub
-                  </a>
-                  <a
-                    href={proj.viewLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="bg-blue-600 hover:bg-blue-700 px-4 py-2 text-sm rounded-md"
-                  >
-                    View
-                  </a>
+                    <a
+                      href={proj.githubLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="bg-white text-black hover:bg-gray-300 px-4 py-2 text-sm rounded-md flex items-center gap-2"
+                    >
+                      <FaGithub className="text-base" />
+                      GitHub
+                    </a>
+                    <a
+                      href={proj.viewLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="bg-blue-600 hover:bg-blue-700 px-4 py-2 text-sm rounded-md"
+                    >
+                      View
+                    </a>
+                  </div>
+                </div>
+
+                <div className="p-4 flex flex-col h-52">
+                  {/* Increased font size on smaller screens */}
+                  <h2 className="text-lg sm:text-2xl font-semibold mb-3 leading-tight">
+                    {proj.title}
+                  </h2>
+                  <p className="text-sm text-white/70 flex-1 overflow-y-auto scrollbar-hide">
+                    {proj.description}
+                  </p>
                 </div>
               </div>
-
-              <div className="p-4 flex flex-col h-52">
-                <h2 className="text-base sm:text-lg font-semibold mb-2 leading-tight">
-                  {proj.title}
-                </h2>
-                <p className="text-sm text-white/70 flex-1 overflow-y-auto scrollbar-hide">
-                  {proj.description}
-                </p>
-              </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </main>
 
