@@ -6,6 +6,7 @@ import Navbar from "../components/Navbar";
 import { FaGithub } from "react-icons/fa";
 import movieImg from "../assets/movie.webp";
 import cooking from "../assets/cooking.webp";
+import civicEye from '../assets/img1.webp';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -26,6 +27,15 @@ const projects = [
     viewLink: "https://recipe-app-ten-pearl.vercel.app/",
     githubLink: "https://github.com/shabinvs/recipe-app",
   },
+  {
+  title: "CivicEye",
+  image: civicEye, 
+  description:
+    "CivicEye is a full-stack MERN application designed to streamline the process of reporting, managing, and resolving public complaints. It enables users to register issues such as civic violations, track their complaint status, and receive timely updates. Admins can view, approve, or reject complaints, as well as manage user feedback. The platform features a clean and responsive UI built with React and Tailwind CSS, ensuring a smooth experience on all devices. With secure login and token-based authentication, CivicEye offers transparency and accountability in local governance.",
+  viewLink: "https://civic-eye-frontend-nu.vercel.app/",
+  githubLink: "https://github.com/shabinvs/Civic_Eye",
+}
+
 ];
 
 const Projects = () => {
