@@ -13,35 +13,35 @@ gsap.registerPlugin(ScrollTrigger);
 const projects = [
   {
     title: "Noble Homeware - Premium Home Decor Showcase",
-    image: "/noblehomeware.png",
+    image: "/noblehomeware.webp",
     description:
       "Noble Homeware is an elegant product catalog website showcasing premium home goods and decor items. The platform features beautifully organized product galleries with detailed descriptions, specifications, and high-quality imagery. Built with a focus on visual presentation and user experience, it includes advanced filtering options, category browsing, and inquiry systems for interested customers. The website serves as a digital showroom for the brand's curated collection, providing comprehensive product information and facilitating customer inquiries through an integrated contact system.",
     viewLink: "https://www.noblehomeware.com/",
   },
   {
     title: "Nkweda - Women Entrepreneurs Organization",
-    image: "/weda.png",
+    image: "/weda.webp",
     description:
       "Nkweda is a dedicated organization supporting and empowering women entrepreneurs across Karnataka. The platform serves as a comprehensive hub connecting women business owners with resources, mentorship opportunities, and networking events. It features member profiles, business directories, success stories, and event management systems. Built with a focus on community building and economic empowerment, the website provides tools for skill development, funding opportunities, and collaborative initiatives to help women-led businesses thrive in the Karnataka ecosystem.",
     viewLink: "https://www.nkweda.org/",
   },
   {
     title: "AccoCrunch - Business Registration & Legal Support",
-    image: "/accocrunch.png",
+    image: "/accocrunch.webp",
     description:
       "AccoCrunch is a comprehensive platform providing end-to-end business registration, tax advisory, compliance, and legal support services for startups, freelancers, SMEs, and growth-focused companies. The website offers streamlined solutions for company incorporation, GST registration, tax filing, trademark registration, and ongoing compliance management. With an intuitive interface, clients can track application status, access expert consultation, and manage all their regulatory requirements in one place. Built to simplify complex legal and financial processes, AccoCrunch empowers entrepreneurs to focus on business growth while ensuring full regulatory compliance.",
     viewLink: "https://www.accocrunch.com/",
   },
   {
     title: "OneStop Recruitment - Staffing Solutions",
-    image: "/onestoprecruitment.png",
+    image: "/onestoprecruitment.webp",
     description:
       "OneStop Recruitment is a modern staffing and recruitment platform that connects job seekers with employers. The website features advanced job search functionality, candidate profiles, employer dashboards, and an application tracking system. Built with scalability in mind, it provides a seamless experience for both recruiters and job applicants with features like resume uploads, interview scheduling, and communication tools.",
     viewLink: "https://www.onestoprecruitment.ca/",
   },
   {
     title: "SS Wind Tech - Renewable Energy Solutions",
-    image: "/sswindtech.png",
+    image: "/sswindtech.webp",
     description:
       "SS Wind Tech is a comprehensive platform showcasing renewable energy solutions and wind turbine technology. The website features detailed product information, technical specifications, and case studies of successful wind energy installations. Built with a focus on sustainability and innovation, it includes interactive demonstrations, energy calculators, and consultation booking systems. The platform serves as an educational resource for renewable energy adoption while providing commercial solutions for businesses and individuals looking to transition to wind power.",
     viewLink: "https://sswindtech.vercel.app/",
