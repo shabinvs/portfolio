@@ -40,6 +40,13 @@ const projects = [
     viewLink: "https://www.onestoprecruitment.ca/",
   },
   {
+    title: "SS Wind Tech - Renewable Energy Solutions",
+    image: "/sswindtech.png",
+    description:
+      "SS Wind Tech is a comprehensive platform showcasing renewable energy solutions and wind turbine technology. The website features detailed product information, technical specifications, and case studies of successful wind energy installations. Built with a focus on sustainability and innovation, it includes interactive demonstrations, energy calculators, and consultation booking systems. The platform serves as an educational resource for renewable energy adoption while providing commercial solutions for businesses and individuals looking to transition to wind power.",
+    viewLink: "https://sswindtech.vercel.app/",
+  },
+  {
     title: "Movie Galaxy – IMDb Powered Search",
     image: movieImg,
     description:
@@ -121,7 +128,7 @@ const Projects = () => {
         aria-hidden="true"
       />
       <main className="flex-grow w-full z-10 pt-28 pb-20">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 max-w-6xl mx-auto">
           {projects.map((proj, idx) => {
             const isActive = activeIdx === idx;
             return (
@@ -130,7 +137,7 @@ const Projects = () => {
                 ref={(el) => (cardRefs.current[idx] = el)}
                 tabIndex={0}
                 onClick={() => handleCardClick(idx)}
-                className={`group bg-white/10 backdrop-blur-sm border border-white/10 rounded-xl overflow-hidden shadow-md relative w-full max-w-[360px] mx-auto transform transition-transform hover:scale-[1.03] focus-within:scale-[1.03] ${isActive ? "scale-[1.03]" : ""}`}
+                className={`group bg-white/10 backdrop-blur-sm border border-white/10 rounded-xl overflow-hidden shadow-md relative w-full max-w-[400px] mx-auto transform transition-transform hover:scale-[1.03] focus-within:scale-[1.03] ${isActive ? "scale-[1.03]" : ""}`}
               >
                 <div className="relative overflow-hidden">
                   <img
