@@ -12,6 +12,34 @@ gsap.registerPlugin(ScrollTrigger);
 
 const projects = [
   {
+    title: "Nkweda - Women Entrepreneurs Organization",
+    image: "/weda.png",
+    description:
+      "Nkweda is a dedicated organization supporting and empowering women entrepreneurs across Karnataka. The platform serves as a comprehensive hub connecting women business owners with resources, mentorship opportunities, and networking events. It features member profiles, business directories, success stories, and event management systems. Built with a focus on community building and economic empowerment, the website provides tools for skill development, funding opportunities, and collaborative initiatives to help women-led businesses thrive in the Karnataka ecosystem.",
+    viewLink: "https://www.nkweda.org/",
+  },
+  {
+    title: "AccoCrunch - Business Registration & Legal Support",
+    image: "/accocrunch.png",
+    description:
+      "AccoCrunch is a comprehensive platform providing end-to-end business registration, tax advisory, compliance, and legal support services for startups, freelancers, SMEs, and growth-focused companies. The website offers streamlined solutions for company incorporation, GST registration, tax filing, trademark registration, and ongoing compliance management. With an intuitive interface, clients can track application status, access expert consultation, and manage all their regulatory requirements in one place. Built to simplify complex legal and financial processes, AccoCrunch empowers entrepreneurs to focus on business growth while ensuring full regulatory compliance.",
+    viewLink: "https://www.accocrunch.com/",
+  },
+  {
+    title: "OneStop Recruitment - Staffing Solutions",
+    image: "/onestoprecruitment.png",
+    description:
+      "OneStop Recruitment is a modern staffing and recruitment platform that connects job seekers with employers. The website features advanced job search functionality, candidate profiles, employer dashboards, and an application tracking system. Built with scalability in mind, it provides a seamless experience for both recruiters and job applicants with features like resume uploads, interview scheduling, and communication tools.",
+    viewLink: "https://www.onestoprecruitment.ca/",
+  },
+  {
+    title: "Noble Homeware - Premium Home Decor Showcase",
+    image: "/noblehomeware.png",
+    description:
+      "Noble Homeware is an elegant product catalog website showcasing premium home goods and decor items. The platform features beautifully organized product galleries with detailed descriptions, specifications, and high-quality imagery. Built with a focus on visual presentation and user experience, it includes advanced filtering options, category browsing, and inquiry systems for interested customers. The website serves as a digital showroom for the brand's curated collection, providing comprehensive product information and facilitating customer inquiries through an integrated contact system.",
+    viewLink: "https://www.noblehomeware.com/",
+  },
+  {
     title: "Movie Galaxy – IMDb Powered Search",
     image: movieImg,
     description:
@@ -113,15 +141,17 @@ const Projects = () => {
                   <div
                     className={`absolute inset-0 bg-black/70 opacity-0 transition duration-300 flex items-center justify-center gap-4 md:group-hover:opacity-100 md:group-focus-within:opacity-100 ${isActive ? "opacity-100" : ""}`}
                   >
-                    <a
-                      href={proj.githubLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="bg-white text-black hover:bg-gray-300 px-4 py-2 text-sm rounded-md flex items-center gap-2"
-                    >
-                      <FaGithub className="text-base" />
-                      GitHub
-                    </a>
+                    {proj.githubLink && (
+                      <a
+                        href={proj.githubLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="bg-white text-black hover:bg-gray-300 px-4 py-2 text-sm rounded-md flex items-center gap-2"
+                      >
+                        <FaGithub className="text-base" />
+                        GitHub
+                      </a>
+                    )}
                     <a
                       href={proj.viewLink}
                       target="_blank"
