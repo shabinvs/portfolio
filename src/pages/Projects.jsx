@@ -12,6 +12,13 @@ gsap.registerPlugin(ScrollTrigger);
 
 const projects = [
   {
+    title: "Noble Homeware - Premium Home Decor Showcase",
+    image: "/noblehomeware.png",
+    description:
+      "Noble Homeware is an elegant product catalog website showcasing premium home goods and decor items. The platform features beautifully organized product galleries with detailed descriptions, specifications, and high-quality imagery. Built with a focus on visual presentation and user experience, it includes advanced filtering options, category browsing, and inquiry systems for interested customers. The website serves as a digital showroom for the brand's curated collection, providing comprehensive product information and facilitating customer inquiries through an integrated contact system.",
+    viewLink: "https://www.noblehomeware.com/",
+  },
+  {
     title: "Nkweda - Women Entrepreneurs Organization",
     image: "/weda.png",
     description:
@@ -31,13 +38,6 @@ const projects = [
     description:
       "OneStop Recruitment is a modern staffing and recruitment platform that connects job seekers with employers. The website features advanced job search functionality, candidate profiles, employer dashboards, and an application tracking system. Built with scalability in mind, it provides a seamless experience for both recruiters and job applicants with features like resume uploads, interview scheduling, and communication tools.",
     viewLink: "https://www.onestoprecruitment.ca/",
-  },
-  {
-    title: "Noble Homeware - Premium Home Decor Showcase",
-    image: "/noblehomeware.png",
-    description:
-      "Noble Homeware is an elegant product catalog website showcasing premium home goods and decor items. The platform features beautifully organized product galleries with detailed descriptions, specifications, and high-quality imagery. Built with a focus on visual presentation and user experience, it includes advanced filtering options, category browsing, and inquiry systems for interested customers. The website serves as a digital showroom for the brand's curated collection, providing comprehensive product information and facilitating customer inquiries through an integrated contact system.",
-    viewLink: "https://www.noblehomeware.com/",
   },
   {
     title: "Movie Galaxy – IMDb Powered Search",
